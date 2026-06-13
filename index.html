@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lingoflash Studios | Innovative Mobile Apps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #5a52d6;
+            --accent: #00E5A0;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #ffffff;
+            --bg-grey: #f8f9fa;
+            --shadow-soft: 0 10px 40px rgba(0,0,0,0.05);
+            --shadow-hover: 0 20px 50px rgba(108, 99, 255, 0.15);
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        p {
+            color: var(--text-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.5);
+            background-color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--text-dark);
+            color: var(--text-dark);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-dark);
+            color: white;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        /* Abstract Background Shapes */
+        .hero-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.6;
+        }
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            top: -100px;
+            right: -100px;
+        }
+        .shape-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            bottom: 50px;
+            left: -50px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            text-align: center;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* CSS Phone Mockup */
+        .phone-mockup {
+            width: 280px;
+            height: 560px;
+            background: #1a1a1a;
+            border-radius: 40px;
+            padding: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            margin: 0 auto;
+            position: relative;
+        }
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #6C63FF, #00E5A0);
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+        .phone-notch {
+            width: 120px;
+            height: 25px;
+            background: #1a1a1a;
+            border-radius: 0 0 20px 20px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* --- APP SHOWCASE --- */
+        #apps {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .app-card {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .app-details {
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .app-badge {
+            display: inline-block;
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            width: fit-content;
+        }
+
+        .app-details h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 20px 0 30px 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+            background: rgba(0, 229, 160, 0.1);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .app-preview {
+            background: linear-gradient(135deg, #e0e0e0, #f5f5f5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .app-preview img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* --- SERVICES --- */
+        #services {
+            padding: 100px 0;
+            background-color: var(--bg-grey);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
+            color: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+        }
+
+        /* --- FAQ --- */
+        #faq {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 25px 0;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dark);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-answer p {
+            padding-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        /* Active state for FAQ */
+        .faq-item.active .faq-question i {
+            transform: rotate(45deg);
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 60px 0 30px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
+        }
+
+        .social-links a {
+            color: #888;
+            margin-left: 20px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            
+            .hero-content, .app-card, .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image { order: -1; }
+            
+            .hero-text h1 { font-size: 2.5rem; }
+
+            .phone-mockup {
+                width: 220px;
+                height: 440px;
+            }
+
+            .app-preview {
+                height: 300px;
+                order: -1; /* Image on top on mobile */
+            }
+            
+            .app-details {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="#" class="logo">Lingo<span>flash</span></a>
+            <ul class="nav-links">
+                <li><a href="#apps">Our Apps</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="hero">
+        <div class="hero-shape shape-1"></div>
+        <div class="hero-shape shape-2"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>We Build <span>Smart</span> Mobile Experiences.</h1>
+                <p>Creators of Lingoflash. We blend AI technology with beautiful design to create apps that educate and inspire.</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="#apps" class="btn btn-primary">View Our Apps</a>
+                    <a href="#services" class="btn btn-outline">Hire Us</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <span style="font-size: 4rem;">📚</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- APP SHOWCASE -->
+    <section id="apps">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Application</h2>
+                <p>Our latest release combining AI and education for seamless learning.</p>
+            </div>
+
+            <!-- App Card -->
+            <div class="app-card">
+                <div class="app-details">
+                    <span class="app-badge">Featured App</span>
+                    <h3>Lingoflash</h3>
+                    <p>Master any language with AI-generated flashcards. Adaptive learning, smart quizzes, and progress tracking make vocabulary acquisition faster than ever.</p>
+                    
+                    <ul class="feature-list">
+                        <li>AI-Powered Flashcard Generation</li>
+                        <li>Offline Mode Support</li>
+                        <li>Spaced Repetition System</li>
+                        <li>Dark Mode & Custom Decks</li>
+                    </ul>
+
+                    <div>
+                        <!-- REPLACE THE LINK BELOW WITH YOUR ACTUAL PLAY STORE LINK -->
+                        <a href="https://play.google.com/store/apps/details?id=your.package.name" target="_blank" class="btn btn-primary">
+                            Download on Play Store
+                        </a>
+                    </div>
+                </div>
+                <div class="app-preview">
+                    <!-- Placeholder for app screenshot. You can replace the background with an actual image tag if you have one -->
+                    <div style="font-size: 8rem; opacity: 0.2;">📱</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIRE US / SERVICES -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Build Your Vision</h2>
+                <p>Looking for a custom mobile application? We specialize in Android development, AI integration, and UI/UX design.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon-box">📱</div>
+                    <h3>Android Apps</h3>
+                    <p>Native Android development using Kotlin and modern architecture for performance and scalability.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box">🤖</div>
+                    <h3>AI Integration</h3>
+                    <p>Incorporate Generative AI, Chatbots, and smart features into your mobile applications.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box">🎨</div>
+                    <h3>UI/UX Design</h3>
+                    <p>Clean, user-centric interfaces that prioritize engagement and ease of use.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="mailto:youremail@example.com" class="btn btn-outline">Get a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about our apps and services.</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is Lingoflash free to use?
+                        <span style="font-size: 1.5rem;">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Lingoflash is free to download with optional in-app purchases. We offer a generous free tier that allows you to generate flashcards using AI daily. Premium features include unlimited generation and advanced statistics.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How does the AI generation work?
+                        <span style="font-size: 1.5rem;">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Simply type a topic (e.g., "Spanish Travel Vocabulary") and our AI engine will create a complete flashcard deck for you instantly. It defines terms, creates examples, and even suggests images.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I hire you for a custom project?
+                        <span style="font-size: 1.5rem;">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. We are open to freelance projects and collaborations. Whether you need a full app built from scratch or help integrating AI into an existing project, feel free to reach out via our contact email.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Lingo<span>flash</span></div>
+                <div class="social-links">
+                    <!-- Replace # with your actual social media links -->
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Email">Email</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lingoflash Studios. All rights reserved. | <a href="privacy_policy.html" style="color: #888;">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Sticky Navbar Background on Scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Interactive FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close other open items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
