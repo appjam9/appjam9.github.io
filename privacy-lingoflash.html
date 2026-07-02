@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LingoFlash | Privacy Policy & Terms of Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --bg-color: #ffffff;
+            --surface-color: #f4f4f5;
+            --text-main: #09090b;
+            --text-muted: #71717a;
+            --accent: #2563eb;
+            --accent-light: #eff6ff;
+            --border-color: #e4e4e7;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px; /* Offset for smooth scroll positioning */
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .back-link {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        /* --- HEADER AREA --- */
+        header {
+            padding: 140px 0 60px;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background-color: var(--surface-color);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        header h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 750px;
+        }
+
+        /* --- LAYOUT WRAPPER --- */
+        .wrapper {
+            max-width: 1200px;
+            margin: 60px auto 120px;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
+        }
+
+        /* --- SIDEBAR DOCUMENT MAP --- */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .sidebar h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .doc-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .doc-menu a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .doc-menu a:hover, .doc-menu a.active {
+            color: var(--text-main);
+            font-weight: 600;
+            padding-left: 4px;
+        }
+
+        .doc-menu .menu-heading {
+            font-weight: 700;
+            color: var(--text-main);
+            margin-top: 12px;
+            font-size: 1rem;
+        }
+
+        /* --- DOCUMENT CONTENT --- */
+        .content {
+            max-width: 780px;
+        }
+
+        .content-section {
+            margin-bottom: 60px;
+        }
+
+        .content h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--surface-color);
+        }
+
+        .content h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin: 32px 0 16px;
+            color: var(--text-main);
+        }
+
+        .content p {
+            color: #3f3f46;
+            margin-bottom: 16px;
+        }
+
+        /* --- UI COMPONENT CARDS --- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .feature-card {
+            background-color: var(--surface-color);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border: 1px solid transparent;
+        }
+
+        .service-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            background-color: var(--accent-light);
+            color: var(--accent);
+            padding: 4px 8px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 8px;
+        }
+
+        .feature-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .alert-box {
+            background-color: #fff1f2;
+            border-left: 4px solid #f43f5e;
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            margin: 24px 0;
+        }
+
+        .alert-box p {
+            color: #9f1239;
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid var(--border-color);
+            background-color: var(--surface-color);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- RESPONSIVE STYLES --- */
+        @media (max-width: 992px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin-top: 40px;
+            }
+            .sidebar {
+                display: none; /* Hide Document Map on smaller displays */
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">appjam9 <span>/ LingoFlash</span></a>
+            <a href="index.html" class="back-link">&larr; Back to home</a>
+        </div>
+    </nav>
+
+    <!-- ACCENTED LEGAL HEADER -->
+    <header>
+        <div class="header-container">
+            <span class="badge">Last Updated: July 02, 2026</span>
+            <h1>Privacy Policy &<br>Terms of Service</h1>
+            <p class="intro-text">Welcome to LingoFlash (and LingoFlash Pro). This legal document explicitly outlines our strict approach to your data privacy and your compliance requirements when using our services.</p>
+        </div>
+    </header>
+
+    <!-- CONTENT ELEMENT SYSTEM -->
+    <main class="wrapper">
+        <!-- Interactive Sticky Sidebar Map -->
+        <aside class="sidebar">
+            <h4>Document Directory</h4>
+            <ul class="doc-menu">
+                <li class="menu-heading">Part 1: Privacy</li>
+                <li><a href="#data-collection">1. Storage & Collection</a></li>
+                <li><a href="#third-party">2. Third-Party Plugins</a></li>
+                <li><a href="#permissions">3. System Permissions</a></li>
+                <li><a href="#children">4. Children's Guardrail</a></li>
+                <li class="menu-heading">Part 2: Terms</li>
+                <li><a href="#app-use">1. Acceptable Use</a></li>
+                <li><a href="#premium-pro">2. LingoFlash Pro</a></li>
+                <li><a href="#ai-disclaimer">3. AI Accuracy Waiver</a></li>
+                <li><a href="#liability">4. System Liability</a></li>
+                <li><a href="#modifications">5. Updates & Edits</a></li>
+                <li><a href="#contact-us">6. Support Channels</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Structured Copy -->
+        <div class="content">
+
+            <!-- PART 1 -->
+            <section class="content-section" id="privacy-policy">
+                <h2>PART 1: PRIVACY POLICY</h2>
+                <p>We are completely committed to protecting your security matrix. This framework explains transparently what baseline information we process, how it is managed locally, and how it is securely ring-fenced.</p>
+                
+                <h3 id="data-collection">1. Data Collection and Local Storage</h3>
+                <p>LingoFlash is built engineering-first to explicitly protect your offline study data from unauthorized external scanning.</p>
+                <p><strong>Local Storage:</strong> All created flashcards, organized vocabulary decks, algorithmic spaced-repetition metrics, and personalized system settings are structurally stored inside your local hardware environment. We do not maintain processing servers for user content, and we maintain zero operational capability to view your personal card databases.</p>
+                <p><strong>Export Files:</strong> When you execute a manual command to export your active study decks to structural CSV configurations, files are written natively onto local runtime paths via targeted device directory pathways.</p>
+
+                <h3 id="third-party">2. Third-Party Services</h3>
+                <p>While we structural developers process zero localized details remotely, our system communicates securely with global modern vendors to provide ecosystem consistency. These engines trace unique hardware profiles, stack crash data, and track dynamic analytics under individual provider terms:</p>
+                
+                <div class="card-grid">
+                    <div class="feature-card">
+                        <span class="service-tag">Google AdMob</span>
+                        <h4>Monetization</h4>
+                        <p>Delivers clean programmatic native ads to basic tier consumers. Employs hardware tokens to customize context matching safely.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="service-tag">Google Play Billing</span>
+                        <h4>Transactions</h4>
+                        <p>Processes secure cloud payments to scale systems to LingoFlash Pro configurations. Zero transaction variables touch our servers.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="service-tag">Google Gemini AI</span>
+                        <h4>Generation Engine</h4>
+                        <p>Processes your written prompt input strings via structured API requests to programmatically output functional deck flashcards.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="service-tag">Cloud Text-to-Speech</span>
+                        <h4>Audio Playback</h4>
+                        <p>Streams raw audio syllables directly down from high-fidelity text arrays to compute standard localized pronunciation modeling.</p>
+                    </div>
+                </div>
+
+                <div class="alert-box">
+                    <p><strong>Security Warning:</strong> Because custom deck prompt strings match directly against remote artificial neural instances during API calls, do not write explicit credential profiles or vulnerable legal information into the AI deck generation entry boxes.</p>
+                </div>
+
+                <h3 id="permissions">3. Required Permissions</h3>
+                <p>LingoFlash programmatically calls standard permission alerts inside standard system loops to execute core app behaviors:</p>
+                <p><strong>Internet & Network Access:</strong> Highly essential to run fluid ad network integrations, pass API purchase protocols smoothly, execute deep machine learning flashcard structural setups, and load high-quality streaming TTS voice profiles dynamically.</p>
+
+                <h3 id="children">4. Children’s Privacy</h3>
+                <p>LingoFlash does not intentionally request, manage, or register individual identity data for users falling completely under 13 years of age. If you are an active legal guardian tracking a child who may have passed metrics globally, please flag this directly through our communication channels.</p>
+            </section>
+
+            <!-- PART 2 -->
+            <section class="content-section" id="terms-of-service">
+                <h2>PART 2: TERMS OF SERVICE</h2>
+                
+                <h3 id="app-use">1. Use of the App</h3>
+                <p>LingoFlash supplies functional consumer micro-tools designed to easily construct, manage, and execute cognitive flashcard workflows. You explicitly agree to interface with all features exclusively inside standard parameters defined by regional law. You stand uniquely responsible for data text objects compiled within your local software space.</p>
+
+                <h3 id="premium-pro">2. LingoFlash Pro (In-App Purchases)</h3>
+                <p>We supply a premium configuration variant known as "LingoFlash Pro" via authorized hardware transactions, granting complete ad-removal benefits along with expanded access bounds for smart generation tools.</p>
+                <p>All recurring membership tiers and point-of-sale executions are directly regulated by the Google Play Store network.</p>
+                <p>All subscription processing adjustments, profile status changes, and cash refunds must be explicitly initiated inside your Google Account billing control menu.</p>
+
+                <h3 id="ai-disclaimer">3. AI Generation Disclaimer</h3>
+                <p>The "AI Flashcard Maker" uses computational language modeling to dynamically structure contextual flashcards. We consistently push for structural baseline excellence, but we provide no absolute legal warranties regarding accurate facts, syntax perfection, or total reliability of outputs. We advise all users to double-check their generated flashcards manually prior to committing to major examination structures.</p>
+
+                <h3 id="liability">4. Limitation of Liability</h3>
+                <p>LingoFlash is delivered purely on an "as is" and "as available" development baseline. We do not assert that runtime execution will match continuous performance expectations without standard operational bugs or latency drops. To the max extent enabled by baseline legal statutes, the individual developer of appjam9 shall not be held liable for system operational data drops, file omissions, or functional device errors.</p>
+                
+                <div class="alert-box" style="background-color: #fafafa; border-left-color: var(--text-main);">
+                    <p style="color: var(--text-main);"><strong>Important Framework Notice:</strong> Unsaved internal flashcard data cannot be retrieved out of our systems if you clear your device cache storage manually, lose device structural data paths, or choose to delete the localized application package.</p>
+                </div>
+
+                <h3 id="modifications">5. Changes to this Document</h3>
+                <p>We retain operational autonomy to modify these legal declarations as required. We will consistently flag major layout improvements by explicitly shifting the dynamic "Last Updated" visual check tracker displayed natively at the top section of this documentation.</p>
+
+                <h3 id="contact-us">6. Contact Us</h3>
+                <p>If you encounter core functional questions regarding our privacy rules or want to provide direct service feedback, link up with us directly through our global email domain:</p>
+                <p><strong>Email Identity:</strong> <a href="mailto:devellpr@gmail.com" style="color: var(--accent); font-weight: 600;">devellpr@gmail.com</a></p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- CORE SITE FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 appjam9 Studios. All rights reserved. LingoFlash and LingoFlash Pro are properties of appjam9.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTING -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.content-section h3, .content-section h2');
+            const menuLinks = document.querySelectorAll('.doc-menu a');
+
+            // Scrollspy active state matching loop
+            window.addEventListener('scroll', () => {
+                let currentActiveId = "";
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.scrollY >= sectionTop - 120) {
+                        currentActiveId = section.getAttribute('id');
+                    }
+                });
+
+                menuLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentActiveId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
